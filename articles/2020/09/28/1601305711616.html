@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>世界，你好！ - liujinmai 的个人博客</title><meta name="description" content="Solo 博客系统已经初始化完毕，可在管理后台 - 工具 - 偏好设定中调整更多细节设置。如果需要导入已有博客文章，请参考文档 Solo 支持 Hexo/Jekyll 数据导入。 对了，出于安全考虑请尽快完成如下操作： 登录链滴社区后，在个人设置 - B3 中更新 B3 Key 在 Solo 管理后台 - 工具 - 用户管理中也进行同样的 B3 Key 更新 另外，如果你需要开启评论系统，请参考 Solo 集成 Gitalk 评论系统。 最后，如果你觉得 Solo 很赞的话，请到项目主页 Watch、Star、Fork 三连 😍"/><meta property="og:description" content="Solo 博客系统已经初始化完毕，可在管理后台 - 工具 - 偏好设定中调整更多细节设置。如果需要导入已有博客文章，请参考文档 Solo 支持 Hexo/Jekyll 数据导入。 对了，出于安全考虑请尽快完成如下操作： 登录链滴社区后，在个人设置 - B3 中更新 B3 Key 在 Solo 管理后台 - 工具 - 用户管理中也进行同样的 B3 Key 更新 另外，如果你需要开启评论系统，请参考 Solo 集成 Gitalk 评论系统。 最后，如果你觉得 Solo 很赞的话，请到项目主页 Watch、Star、Fork 三连 😍"/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://eighteen20.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://eighteen20.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="世界，你好！ - liujinmai 的个人博客"/><meta property="og:site_name" content="liujinmai 的个人博客"/><meta property="og:url"      content="https://eighteen20.github.io/hello-solo?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="世界，你好！ - liujinmai 的个人博客" href="/opensearch.xml"><link href="https://eighteen20.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://eighteen20.github.io/manifest.json">        <link rel="canonical" href="https://eighteen20.github.io/hello-solo">        <link rel="stylesheet"
-              href="https://eighteen20.github.io/skins/Casper/css/base.css?1601060513282"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Java反射机制那些事 - 会炒菜的程序圆</title><meta name="description" content="前不久学习了反射机制，来总结下。"/><meta property="og:description" content="前不久学习了反射机制，来总结下。"/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://eighteen20.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://eighteen20.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Java反射机制那些事 - 会炒菜的程序圆"/><meta property="og:site_name" content="会炒菜的程序圆"/><meta property="og:url"      content="https://eighteen20.github.io/articles/2020/09/28/1601305711616.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="Java反射机制那些事 - 会炒菜的程序圆" href="/opensearch.xml"><link href="https://eighteen20.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://eighteen20.github.io/manifest.json">        <link rel="canonical" href="https://eighteen20.github.io/articles/2020/09/28/1601305711616.html">        <link rel="stylesheet"
+              href="https://eighteen20.github.io/skins/Casper/css/base.css?1601305088232"/>
+            <link rel="prev" title="[转]JDK1.8的新特性" href="https://eighteen20.github.io/articles/2020/09/28/1601305323746.html">
+            <link rel="next" title="初识Java注解" href="https://eighteen20.github.io/articles/2020/09/28/1601306177936.html">
     <script src="https://cdn.jsdelivr.net/npm/vditor@3.5.3/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -10,14 +12,14 @@
     <header class="header header--article">
         <div class="wrapper header__title">
             <h1 class="header__h1 fn__flex-inline">
-                <img src="https://static.b3log.org/images/brand/solo-128.png" alt="liujinmai 的个人博客">
-                <a href="https://eighteen20.github.io" rel="start" class="header__title">liujinmai 的个人博客</a>
+                <img src="https://static.b3log.org/images/brand/solo-128.png" alt="会炒菜的程序圆">
+                <a href="https://eighteen20.github.io" rel="start" class="header__title">会炒菜的程序圆</a>
             </h1>
-            <h2 class="header__h2">记录精彩的程序人生</h2>
+            <h2 class="header__h2">要码字，会生活</h2>
         </div>
         <nav class="wrapper header__nav fn__clear">
             <a href="https://eighteen20.github.io" rel="start">
-                    liujinmai 的个人博客
+                    会炒菜的程序圆
             </a>
 
 
@@ -45,11 +47,11 @@
     <div class="article__top">
         <div class="fn__clear">
             <div class="toc fn__none" onclick="$('.post__toc').slideToggle()">目录</div>
-            <div class="title fn__pointer" onclick="Util.goTop()">世界，你好！</div>
+            <div class="title fn__pointer" onclick="Util.goTop()">Java反射机制那些事</div>
 <div class="article__share"
-     data-title="世界，你好！"
-     data-blogtitle="liujinmai 的个人博客"
-     data-url="https://eighteen20.github.io/hello-solo"
+     data-title="Java反射机制那些事"
+     data-blogtitle="会炒菜的程序圆"
+     data-url="https://eighteen20.github.io/articles/2020/09/28/1601305711616.html"
      data-avatar="https://b3logfile.com/avatar/1601059830254.png?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -82,34 +84,384 @@
         <div class="ft__center">
             <div class="item__meta">
                 <time>
-                    2020-09-26
+                    2020-09-28
                 </time>
                 /
                     <a class="tag" rel="tag"
-                       href="https://eighteen20.github.io/tags/Solo">Solo</a> &nbsp;
+                       href="https://eighteen20.github.io/tags/java">java</a> &nbsp;
             </div>
             <h2 class="item__title">
-                世界，你好！
+                Java反射机制那些事
             </h2>
         </div>
-        <div class="item__cover" style="background-image: url(https://b3logfile.com/bing/20190804.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+        <div class="item__cover" style="background-image: url(https://b3logfile.com/bing/20181030.jpg?imageView2/1/w/960/h/540/interlace/1/q/100)"></div>
         <div class="wrapper">
             <section class="item__content item__content--article vditor-reset">
-                <p><img src="https://b3logfile.com/bing/20190804.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100" alt=""></p>
-<p>Solo 博客系统已经初始化完毕，可在管理后台 - 工具 - 偏好设定中调整更多细节设置。如果需要导入已有博客文章，请参考文档 <a href="https://ld246.com/article/1498490209748" target="_blank">Solo 支持 Hexo/Jekyll 数据导入</a>。</p>
-<p>对了，出于安全考虑请尽快完成如下操作：</p>
+                <p><img src="https://b3logfile.com/bing/20181030.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
+<h2 id="toc_h2_0">前言</h2>
+<p>前不久学习了反射机制，来总结下。</p>
+<p>在此之前，回顾下java程序的编译运行过程，分为三个阶段：源码（.java文件）进过编译生成字节码文件（.class文件），然后jvm加载字节码文件执行程序（runtime）。</p>
+<p>前两个步骤（编译阶段）是在硬盘上完成的，后一个步骤（运行阶段）是在内存中完成的，而中间这个衔接就是：jvm通过类加载器----ClassLoader把硬盘中的class文件加载到内存中生成一个Class类的对象，这样就可以使用这个类中的成员变量和方法。一个类默认只会被加载一次，所以这个类对应的Class对象有且仅有一个。</p>
+<h2 id="toc_h2_1">什么是java反射机制？</h2>
+<p>1983年Smith首次提出反射这个概念，主要指程序可以访问、检测和修改他本身状态或行为的一种能力。</p>
+<p>java反射机制是在运行状态中中对类进行解剖并操作类中的构造方法，成员方法，成员属性(主要用于框架中)，这种动态获取信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
+<h2 id="toc_h2_2">Class对象和反射机制的联系。</h2>
+<p>了解了反射机制的概念，那么可见要想利用java反射机制做一些事，那么就要利用Class对象，所以说Class对象是反射的前提。</p>
+<p>那么，怎么获取Class对象？</p>
+<h2 id="toc_h2_3">java中有三种方式获取Class对象：</h2>
 <ol>
-<li>登录链滴社区后，在<a href="https://ld246.com/settings/b3" target="_blank">个人设置 - B3</a> 中更新 B3 Key</li>
-<li>在 Solo 管理后台 - 工具 - 用户管理中也进行同样的 B3 Key 更新</li>
+<li>类名.class</li>
+<li>对象名.getClass</li>
+<li>Class.forName("全限定名（包名 + 类名）");</li>
 </ol>
-<p>另外，如果你需要开启评论系统，请参考 <a href="https://ld246.com/article/1594988019287" target="_blank">Solo 集成 Gitalk 评论系统</a>。</p>
-<p>最后，如果你觉得 Solo 很赞的话，请到<a href="https://github.com/88250/solo" target="_blank">项目主页</a> Watch、Star、Fork 三连 😍</p>
+<p><img src="https://b3logfile.com/file/2020/09/solofetchupload408277974590108997-572b00b0.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="img"></p>
+<blockquote>
+<p>补充：Class对象分两种</p>
+</blockquote>
+<blockquote>
+<p>1.普通Class对象：基于 引用类型</p>
+</blockquote>
+<blockquote>
+<p>2.预定义(在jvm中的)Class对象：基于 基本类型 和 void</p>
+</blockquote>
+<h2 id="toc_h2_4">反射机制的几种作用：</h2>
+<ol>
+<li>在运行时判断任意一个对象所属的类</li>
+<li>在运行时构造任意一个类的对象</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法</li>
+<li>在运行时调用任意一个对象的方法</li>
+</ol>
+<p>先准备一个类：</p>
+<pre><code class="language-java">package com.test.demo;
+
+public class Student {
+    public String name;
+    private int age;
+
+    public Student() {}
+
+    private Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public void show(String msg){
+        System.out.println("show方法 = " + msg);
+    }
+
+    private void speak(String msg,int number){
+        System.out.println("speak方法 = " + msg +":"+ number );
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+</code></pre>
+<h2 id="toc_h2_5">反射的使用1：构造器（Constructor）的反射</h2>
+<p>再次之前，我们可以通过公共的空参构造new一个Student，但是无法new私有的满参构造。</p>
+<pre><code class="language-java">
+Student student = new Student();
+
+</code></pre>
+<p>现在来反射构造构造器（反射的形式创建实例）</p>
+<pre><code class="language-java">public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException,
+                                     InvocationTargetException, InstantiationException {
+        //获取Class对象
+        Class&lt;?&gt; clazz = Student.class;
+        /*
+            根据参数类型获取相应的构造器
+            参数类型是形参类型
+         */
+        Constructor&lt;?&gt; constructor = clazz.getConstructor();
+        /*
+            创建实例
+            参数类型是实参类型（形参一一对应）
+         */
+        Object obj = constructor.newInstance();
+        System.out.println("obj = " + obj);
+}
+
+</code></pre>
+<p>这样获取到的Student对象和new出来的空参构造器new出来的对象效果一样的（实际业务开发并没有意义）。</p>
+<p>前者通过new创建出来对象的方式相比用反射创建的对象更被动，前者 是被new出来的，而用反射，是自己创建自己（对象），构造方法反客为主。</p>
+<p>还有一种方式，就是直接通过Class对象创建构造器：</p>
+<pre><code class="language-java">
+public static void main(String[] args)
+
+            throws  IllegalAccessException, InstantiationException {
+
+        //获取Class对象
+
+        Class&lt;?&gt; clazz = Student.class;
+
+        /*
+
+            默认调用空参构造创建一个实例
+
+            jdk9中已过时
+
+        */
+
+        Object obj = clazz.newInstance();
+
+        System.out.println("obj = " + obj);
+
+    }
+
+</code></pre>
+<p>在Student类中 ，还有一个私有的构造器，正常方式下是不能通过私有构造器创建对象的。，但是反射可以做到：</p>
+<pre><code>
+public static void main(String[] args)
+
+            throws NoSuchMethodException, IllegalAccessException,
+
+            InvocationTargetException, InstantiationException {
+
+        //获取Class对象
+
+        Class&lt;?&gt; clazz = Student.class;
+
+        /*
+
+            获取构造
+
+            因为权限是私有，但getConstructor()只能获取public修饰的方法
+
+            getDeclaredConstructor():获取声明的方法。只要声明的就可以
+
+         */
+
+       Constructor&lt;?&gt; constructor = clazz.getDeclaredConstructor(String.class, int.class);
+
+       System.out.println("满参私有构造 ：" + constructor);
+
+        /*
+
+            私有构造，newInstance会产生非法访问异常：java.lang.IllegalAccessException
+
+            所以要改变权限setAccessible() --&gt;暴力反射
+
+         */
+
+        constructor.setAccessible(true);
+
+       Object obj = constructor.newInstance("小明",20);
+
+
+
+        System.out.println("obj = " + obj);
+
+    }
+
+</code></pre>
+<p>以上就是利用反射来创建一个对象（反射构造器）。</p>
+<h2 id="toc_h2_6">反射的使用2：方法（Method）的反射</h2>
+<p>接下来看看Student对象内两个方法的反射</p>
+<p>我们之前（外部）使用方法，都是都是通过对象调用（非私有）方法，如果是静态方法就是类直接调用。</p>
+<p>那么，使用反射调用（非私有）方法，该怎么做？</p>
+<pre><code class="language-java">public static void main(String[] args)
+            throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        //获取Class对象
+        Student student = new Student();
+        Class&lt;? extends Student&gt; clazz = student.getClass();
+        /*
+            getMethod():获取Class对象里的方法
+            参数一：方法名
+            参数二：参数列表类型
+         */
+        Method show = clazz.getMethod("show", String.class);
+        /*
+            调用show方法需要对象和参数invoke()方法：调用的意思
+            参数一：调用此方法的对象
+            参数二：调用此方法需要传入的实参
+         */
+        show.invoke(student, "hello public show");
+
+    }
+
+</code></pre>
+<blockquote>
+<p>反射可以理解为语言语法上的倒装句：</p>
+</blockquote>
+<blockquote>
+<p>我们平时写代码都是我（对象）去调用方法，这里就是：</p>
+</blockquote>
+<blockquote>
+<p><strong>new Student().show("对象调用方法");</strong></p>
+</blockquote>
+<blockquote>
+<p>而在 <strong>show.invoke(student, "hello public show");</strong> 中，</p>
+</blockquote>
+<blockquote>
+<p>show方法考虑的是谁来调用我，然后Student对象说，我来调用你（student作为参数）。</p>
+</blockquote>
+<blockquote>
+<p>扩展：如果公共的show方法加上static关键字，会影响方法调用吗？</p>
+</blockquote>
+<blockquote>
+<p>提示：静态与对象无关.</p>
+</blockquote>
+<blockquote>
+<p>答：加上static关键字，普通代码即使不new对象也可以调用，这个大家都知道，那么，在<strong>show.invoke(student, "hello public show");</strong>  中参数1 写 null 也是不影响的，因为，show方法来自于 Student的Class对象。</p>
+</blockquote>
+<p>接下来看看私有方法的反射如何实现？</p>
+<p>ps: 反射通道的API都很有规律，可读性很强</p>
+<pre><code class="language-java">
+public static void main(String[] args)
+
+            throws NoSuchMethodException, IllegalAccessException,
+
+            InvocationTargetException {
+
+         //获取Class对象
+
+        Student student = new Student();
+
+        Class&lt;? extends Student&gt; clazz = student.getClass();
+
+        /*
+
+            getDeclaredMethod():获取Class对象里的声明过的方法(包括)
+
+            参数一：方法名
+
+            参数二：参数列表类型
+
+         */
+
+        Method speak = clazz.getDeclaredMethod("speak", String.class, int.class);
+
+        //私有方法，暴力反射
+
+        speak.setAccessible(true);
+
+        /*
+
+            调用show方法需要对象和参数
+
+            invoke()方法：调用的意思
+
+            参数一：调用此方法的对象
+
+            参数二：调用此方法需要传入的实参
+
+         */
+
+        speak.invoke(student, "hello private speak",2018);
+
+    }
+
+</code></pre>
+<h2 id="toc_h2_7">反射的使用3：属性（Field）的反射</h2>
+<p>在Student实体中有一个共有属性一个私有属性，我们可以通过对象来设置共有属性的值，那么通过反射如何实现所有属性的赋值？</p>
+<p>先来看看共有属性name的赋值</p>
+<pre><code class="language-java">
+public static void main(String[] args)
+
+            throws ClassNotFoundException, NoSuchFieldException,
+
+            IllegalAccessException, InstantiationException {
+
+         //获取Class对象,参数全限定名
+
+        Class&lt;?&gt; clazz = Class.forName("com.test.demo.Student");
+
+        /*
+
+            getField():通过属性名获取属性
+
+         */
+
+        Field name = clazz.getField("name");
+
+        //获取对象
+
+        Object obj = clazz.newInstance();
+
+        /*
+
+            设置一个值
+
+            参数一：哪个对象的属性值
+
+            参数二：参数
+
+         */
+
+        name.set(obj,"张三");
+
+        System.out.println(obj);
+
+    }
+
+</code></pre>
+<p>根据前面说的API，反射属性不难理解。</p>
+<p>私有属性的反射也不难实现</p>
+<pre><code class="language-java">
+public static void main(String[] args)
+
+            throws ClassNotFoundException, NoSuchFieldException,
+
+            IllegalAccessException, InstantiationException {
+
+         //获取Class对象,参数全限定名
+
+        Class&lt;?&gt; clazz = Class.forName("com.test.demo.Student");
+
+        /*
+
+            getDeclaredField():通过属性名获取（所有权限）属性
+
+         */
+
+        Field age = clazz.getDeclaredField("age");
+
+        //暴力反射
+
+        age.setAccessible(true);
+
+        //创建对象
+
+        Object obj = clazz.newInstance();
+
+        /*
+
+            设置一个值
+
+            参数一：哪个对象的属性值
+
+            参数二：参数
+
+         */
+
+        age.set(obj,20);
+
+        System.out.println(obj);
+
+    }
+
+</code></pre>
+<h2 id="toc_h2_8">总结：</h2>
+<p><strong>使用java的反射机制，一般需要遵循三步：</strong></p>
+<ol>
+<li>获得你想操作类的Class对象</li>
+<li>通过第一步获得的Class对象去取得操作类的方法或是属性名</li>
+<li>操作第二步取得的方法或是属性</li>
+</ol>
+<p><strong>那么反射到底有什么用？</strong></p>
+<p>反射最主要还是运用在框架中，了解反射(不止反射)才更好的了解一些框架的原理。</p>
                     <div>
                         <hr>
 
-标题：世界，你好！<br>
+标题：Java反射机制那些事<br>
 作者：<a href="https://eighteen20.github.io" target="_blank">liujinmai</a><br>
-地址：<a href="https://eighteen20.github.io/hello-solo" target="_blank">https://eighteen20.github.io/hello-solo</a><br>
+地址：<a href="https://eighteen20.github.io/articles/2020/09/28/1601305711616.html" target="_blank">https://eighteen20.github.io/articles/2020/09/28/1601305711616.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -117,9 +469,39 @@
             </section>
         </div>
     </div>
+        <div class="post__toc">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#toc_h2_0">前言</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_1">什么是java反射机制？</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_2">Class对象和反射机制的联系。</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_3">java中有三种方式获取Class对象：</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_4">反射机制的几种作用：</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_5">反射的使用1：构造器（Constructor）的反射</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_6">反射的使用2：方法（Method）的反射</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_7">反射的使用3：属性（Field）的反射</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_8">总结：</a>
+        </li>
+</ul>        </div>
         <div id="gitalk-container" class="comment__wrapper wrapper" style="margin: 40px auto"></div>
         <div id="b3logsolocomments"></div>
-        <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="liujinmai" data-postId="1601059882851"></div>
+        <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="liujinmai" data-postId="1601305711616"></div>
     <div class="article__bottom">
         <div class="wrapper">
             <div class="fn__flex">
@@ -135,7 +517,7 @@
         <div class="fn__left">
             <br>
             &copy; 2020
-            <a href="https://eighteen20.github.io">liujinmai 的个人博客</a>
+            <a href="https://eighteen20.github.io">会炒菜的程序圆</a>
             
         </div>
         <div class="fn__right">
@@ -151,7 +533,7 @@
             友链
             </a>
             <br>
-            1 文章 &nbsp;
+            4 文章 &nbsp;
             <span data-uvstaturl="https://eighteen20.github.io">0</span> 浏览 &nbsp;
             
         </div>
@@ -169,11 +551,11 @@
     version: "4.3.1",
     staticSite: true,
     showCodeBlockLn: false,
-    articleId: "1601059882851",
+    articleId: "1601305711616",
   }
 </script>
 <script type="text/javascript"
-        src="https://eighteen20.github.io/skins/Casper/js/common.min.js?1601060513282"
+        src="https://eighteen20.github.io/skins/Casper/js/common.min.js?1601305088232"
         charset="utf-8"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.js"></script>
@@ -207,10 +589,10 @@
 
 
 <script type="text/javascript">
-    Util.addScript('https://eighteen20.github.io/js/page.min.js?1601060513282', 'soloPageScript')
+    Util.addScript('https://eighteen20.github.io/js/page.min.js?1601305088232', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论不能为空",
-        "oId": "1601059882851",
+        "oId": "1601305711616",
         "blogHost": "https://eighteen20.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
@@ -219,7 +601,7 @@
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
         page.loadRandomArticles('<h3>随机阅读</h3>');
-        page.loadRelevantArticles('1601059882851', '<h3>相关阅读</h3>');
+        page.loadRelevantArticles('1601305711616', '<h3>相关阅读</h3>');
     Skin.initArticle()
     });
 </script>
@@ -227,4 +609,4 @@
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 9ms, 2020/09/26 03:06:43 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 21ms, 2020/09/28 23:20:11 -->
